@@ -1,0 +1,75 @@
+body{    
+    background-color: whitesmoke;
+    position: relative;
+    height: 100%;
+}
+.title{
+    margin: 10px 0 0 10px;
+    width:min-content;
+    font-size:40px;
+    font-weight: bold;
+    text-align: center;
+    color:transparent;
+    background: repeating-linear-gradient( 60deg, #FF3D00 0 20px, #0091EA 20px 40px);
+    -webkit-background-clip: text;
+}
+.header_list{
+  position:relative;
+  display: flex;
+  justify-content: space-around;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0 200px 0 200px;
+}
+.text{
+    color:white;
+    text-shadow: 0 0 10px black;
+    text-decoration: none;
+}
+.button{
+    color:whitesmoke;
+    background-color: gray;
+    padding:2px 6px;
+    margin: 5px;
+    transition: all 0.2s;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 0 10px black;
+    opacity: 0.8;
+
+}
+.button:hover{
+    opacity: 1.0;
+    padding:5px 10px;
+    top:5px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+.button:active{
+    border:none;
+    box-shadow: none;
+    position: relative;
+    top:5px;
+}
+.btn_border{
+    border: 2px black solid;
+    border-radius: 5px;
+    box-shadow: 0px 7px black;
+}
+.flex-center {
+    align-items: flex-end;
+    display: flex;
+    justify-content: center;
+}
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+.links >a {
+    text-decoration: none;
+    padding: 0 10px;
+    color: gray;
+    font-weight: bold;
+}
