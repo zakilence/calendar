@@ -1,32 +1,63 @@
 <template>
     <div>
-        <v-sheet height="100vh">
-            <v-calendar
-                v-model="value"
-                :events="events"
-                @change="fetchEvents"
-            ></v-calendar>
-        </v-sheet>
+      <v-sheet height="6vh" class="d-flex align-center">
+        <v-btn outlined small class="ma-4" @click="setToday">TODAY</v-btn>
+        <v-btn icon @click="$refs.calendar.prev()">
+          <v-icon>mdi-chevron-left</v-icon>
+        </v-btn>
+        <v-btn icon @click="$refs.calendar.next()">
+          <v-icon>mdi-chevron-right</v-icon>
+        </v-btn>
+        <v-toolbar-title>{{ title }}</v-toolbar-title>
+      </v-sheet>
+      <v-sheet height="94vh">
+        <v-calendar
+        ref="calendar"
+          v-model="value"
+          :events="events"
+          @change="fetchEvents"
+          locale="ja-jp"
+          :day-format="(timestamp) => new Date(timestamp.date).getDate()"
+          :month-format="(timestamp) => (new Date(timestamp.date).getMonth() + 1)"
+          @click:event="showEvent"
+        ></v-calendar>
+      </v-sheet>
+      <v-dialog :value="event !==null" @click:outside="closeDialog" width="600">
+        <EventDetailDialog v-if="event !==null" />
+      </v-dialog>
     </div>
 </template>
 
 <script>
+import { format } from 'date-fns';
+import { mapGetters, mapActions } from 'vuex'; 
+import EventDetailDialog from './EventDetailDialog'; // EventDetailDialog.vueを読み込む
+
 export default {
     name: 'Calendar',
     data: () => ({
-        value: new Date('2021/09/01'), // 表示する月を指定 ※予めイベントデータを作成しておいて下さい。
-        events: [],
+        value: new Date('2021/09/25'),  // 表示する月を指定
     }),
+    components: {
+      EventDetailDialog, //EventDetailDialogの使用を定義
+    },
+    computed: {
+        ...mapGetters('events', ['events','event']),
+        title(){
+          return format(new Date(this.value), '2021年9月');
+        },
+    },
     methods: {
-        fetchEvents() {
-            axios.get('/api/events')
-                .then(response => {
-                    this.events = response.data;
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-        }
+        ...mapActions('events', ['fetchEvents','setEvent']),
+        setToday(){
+          this.value = format(new Date(), '2021/09/25');
+        },
+        showEvent({ event }){
+          this.setEvent(event);
+        },
+        closeDialog(){
+          this.setEvent(null);
+        },
     }
 };
 </script>
