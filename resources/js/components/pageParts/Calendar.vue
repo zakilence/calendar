@@ -12,7 +12,7 @@
       </v-sheet>
       <v-sheet height="94vh">
         <v-calendar
-        ref="calendar"
+          ref="calendar"
           v-model="value"
           :events="events"
           @change="fetchEvents"
@@ -20,10 +20,12 @@
           :day-format="(timestamp) => new Date(timestamp.date).getDate()"
           :month-format="(timestamp) => (new Date(timestamp.date).getMonth() + 1)"
           @click:event="showEvent"
+          @click:day="initEvent"
         ></v-calendar>
       </v-sheet>
-      <v-dialog :value="event !==null" @click:outside="closeDialog" width="600">
-        <EventDetailDialog v-if="event !==null" />
+      <v-dialog :value="event !== null" @click:outside="closeDialog" width="600">
+        <EventDetailDialog v-if="event !== null && !isEditMode" />
+        <EventFormDialog v-if="event === null && !isEditMode"/>
       </v-dialog>
     </div>
 </template>
@@ -31,32 +33,42 @@
 <script>
 import { format } from 'date-fns';
 import { mapGetters, mapActions } from 'vuex'; 
-import EventDetailDialog from './EventDetailDialog'; // EventDetailDialog.vueを読み込む
+import EventDetailDialog from "./EventDetailDialog";
+import EventFormDialog from "../form/EventFormDialog";
 
 export default {
     name: 'Calendar',
     data: () => ({
-        value: new Date('2021/09/25'),  // 表示する月を指定
+        value: format(new Date(), 'yyyy/MM/dd'),  // 表示する月を指定
     }),
     components: {
       EventDetailDialog, //EventDetailDialogの使用を定義
+      EventFormDialog,
     },
     computed: {
-        ...mapGetters('events', ['events','event']),
+        ...mapGetters('events', ['events','event','isEditMode']),
         title(){
-          return format(new Date(this.value), '2021年9月');
+          return format(new Date(this.value), 'yyyy年M月');
         },
     },
     methods: {
-        ...mapActions('events', ['fetchEvents','setEvent']),
+        ...mapActions('events', ['fetchEvents','setEvent','setEditMode']),
         setToday(){
-          this.value = format(new Date(), '2021/09/25');
+          this.value = format(new Date(), 'yyyy/MM/dd');
         },
-        showEvent({ event }){
+        showEvent({ event }) {
           this.setEvent(event);
         },
         closeDialog(){
           this.setEvent(null);
+          this.setEditMode(false);
+        },
+        initEvent({ date }) {
+          date = date.replace(/-/g, '/');
+          const start = format(new Date(date), 'yyyy/MM/dd 00:00:00');
+          const end = format(new Date(date), 'yyyy/MM/dd 01:00:00');
+          this.setEvent({ name: '', start, end, timed: true});
+          this.setEditMode(true);
         },
     }
 };

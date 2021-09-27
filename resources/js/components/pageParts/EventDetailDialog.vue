@@ -1,55 +1,60 @@
 <template>
     <v-card class="pb-12">
         <v-card-actions class="d-flex justify-end pa-2">
+            <v-btn icon @click="editEvent">
+                <v-icon size="20px">mdi-pencil-outline</v-icon>
+            </v-btn>
+            <v-btn icon @click="removeEvent">
+                <v-icon size="20px">mdi-trash-can-outline</v-icon>
+            </v-btn>
             <v-btn icon @click="closeDialog">
                 <v-icon size="20px">mdi-close</v-icon>
             </v-btn>
         </v-card-actions>
         <v-card-title>
-            <v-row>
-                <v-col cols="2" class="d-flex justify-center align-center">
-                    <v-icon size="20px" :color="event.color || 'blue'">mdi-square</v-icon>
-                </v-col>
-                <v-col class="d-flex align-center">
-                    {{ event.name }}
-                </v-col>
-            </v-row>
+            <DialogSection icon="mdi-square" :color="event.color">
+                {{ event.name }}
+            </DialogSection>
         </v-card-title>
         <v-card-text>
-            <v-row>
-                <v-col cols="2" class="d-flex justify-center align-center">
-                    <v-icon size="20px">mdi-clock-time-three-outline</v-icon>
-                </v-col>
-                <v-col class="d-flex align-center">
-                    {{ event.start.toLocaleString() }} ~ {{ event.end.toLocaleString() }}
-                </v-col>
-            </v-row>
+            <DialogSection icon="mdi-clock-time-three-outline">
+                {{ event.startDate }} {{ event.timed ? event.startTime : '' }} ~ {{ event.endDate }} {{ event.timed ? event.endTime : '' }}
+            </DialogSection>
         </v-card-text>
         <v-card-text>
-            <v-row>
-                <v-col cols="2" class="d-flex justify-center align-center">
-                    <v-icon size="20px">mdi-card-text-outline</v-icon>
-                </v-col>
-                <v-col class="d-flex align-center">
-                    {{ event.description || 'no description' }}
-                </v-col>
-            </v-row>
+            <DialogSection icon="mdi-card-text-outline">
+                {{ event.description || 'no description' }}
+            </DialogSection>
         </v-card-text>
+
     </v-card>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import DialogSection from './DialogSection';
 
 export default {
     name: 'EventDetailDialog',
     computed: {
         ...mapGetters('events', ['event']),
     },
+    components: {
+        DialogSection,
+    },
     methods: {
-        ...mapActions('events', ['setEvent']),
+        ...mapActions('events', ['setEvent', 'deleteEvent', 'setEditMode']),
         closeDialog() {
             this.setEvent(null);
+        },
+        removeEvent() {
+            const res = confirm(`「${this.event.name}」を削除してもよろしいですか？`);
+            if(res) {
+                this.deleteEvent(this.event.id);
+            }
+        },
+        editEvent() {
+            this.setEditMode(true);
         },
     }
 };
