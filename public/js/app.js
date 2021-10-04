@@ -2065,6 +2065,192 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/calendars/CalendarFormDialog.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/calendars/CalendarFormDialog.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _pageParts_DialogSection__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../pageParts/DialogSection */ "./resources/js/components/pageParts/DialogSection.vue");
+/* harmony import */ var _form_ColorForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../form/ColorForm */ "./resources/js/components/form/ColorForm.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'CalendarFormDialog',
+  components: {
+    DialogSection: _pageParts_DialogSection__WEBPACK_IMPORTED_MODULE_0__["default"],
+    ColorForm: _form_ColorForm__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      name: '',
+      color: null
+    };
+  },
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)('calendars', ['calendar'])),
+  created: function created() {
+    this.name = this.calendar.name;
+    this.color = this.calendar.color;
+  },
+  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapActions)('calendars', ['createCalendar', 'setCalendar'])), {}, {
+    close: function close() {
+      this.setCalendar(null);
+    },
+    submit: function submit() {
+      var user_id = document.getElementById('user_id').value; // bladeからuser_idを取得する
+
+      var params = _objectSpread(_objectSpread({}, this.calendar), {}, {
+        name: this.name,
+        color: this.color,
+        user_id: user_id
+      });
+
+      this.createCalendar(params);
+      this.close();
+    }
+  })
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/calendars/CalendarList.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/calendars/CalendarList.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _CalendarFormDialog__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CalendarFormDialog */ "./resources/js/components/calendars/CalendarFormDialog.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'CalendarList',
+  data: function data() {
+    return {
+      selectedItem: null
+    };
+  },
+  components: {
+    CalendarFormDialog: _CalendarFormDialog__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('calendars', ['calendars', 'calendar'])),
+  created: function created() {
+    this.fetchCalendars();
+  },
+  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)('calendars', ['fetchCalendars', 'setCalendar'])), {}, {
+    initCalendar: function initCalendar() {
+      this.setCalendar({
+        name: '',
+        visibility: true
+      });
+    },
+    closeDialog: function closeDialog() {
+      this.setCalendar(null);
+    }
+  })
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/form/CheckBox.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/form/CheckBox.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'CheckBox',
+  props: ['value', 'label']
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/form/ColorForm.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/form/ColorForm.vue?vue&type=script&lang=js& ***!
@@ -2148,12 +2334,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _pageParts_DialogSection__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../pageParts/DialogSection */ "./resources/js/components/pageParts/DialogSection.vue");
 /* harmony import */ var _DateForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DateForm */ "./resources/js/components/form/DateForm.vue");
 /* harmony import */ var _TimeForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TimeForm */ "./resources/js/components/form/TimeForm.vue");
 /* harmony import */ var _TextForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TextForm */ "./resources/js/components/form/TextForm.vue");
 /* harmony import */ var _ColorForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ColorForm */ "./resources/js/components/form/ColorForm.vue");
+/* harmony import */ var _CheckBox__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./CheckBox */ "./resources/js/components/form/CheckBox.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2190,6 +2377,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -2203,7 +2397,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     DateForm: _DateForm__WEBPACK_IMPORTED_MODULE_1__["default"],
     TimeForm: _TimeForm__WEBPACK_IMPORTED_MODULE_2__["default"],
     TextForm: _TextForm__WEBPACK_IMPORTED_MODULE_3__["default"],
-    ColorForm: _ColorForm__WEBPACK_IMPORTED_MODULE_4__["default"]
+    ColorForm: _ColorForm__WEBPACK_IMPORTED_MODULE_4__["default"],
+    CheckBox: _CheckBox__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   data: function data() {
     return {
@@ -2213,40 +2408,59 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       endDate: null,
       endTime: null,
       description: '',
-      color: ''
+      color: '',
+      allDay: false
     };
   },
-  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapGetters)('events', ['event'])),
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_6__.mapGetters)('events', ['event'])),
   created: function created() {
+    this.name = this.event.name; // 追加
+
     this.startDate = this.event.startDate;
     this.startTime = this.event.startTime;
     this.endDate = this.event.endDate;
     this.endTime = this.event.endTime;
+    this.description = this.event.description; // 追加
+
     this.color = this.event.color;
+    this.allDay = !this.event.timed;
   },
-  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapActions)('events', ['setEvent', 'setEditMode', 'createEvent'])), {}, {
+  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_6__.mapActions)('events', ['setEvent', 'setEditMode', 'createEvent', 'updateEvent'])), {}, {
+    // 追加
     closeDialog: function closeDialog() {
       this.setEditMode(false);
       this.setEvent(null);
     },
     submit: function submit() {
-      var params = {
+      var params = _objectSpread(_objectSpread({}, this.event), {}, {
+        // 追加
         name: this.name,
         start: "".concat(this.startDate, " ").concat(this.startTime || ''),
         end: "".concat(this.endDate, " ").concat(this.endTime || ''),
         description: this.description,
-        color: this.color
-      };
-      this.createEvent(params);
+        color: this.color,
+        timed: !this.allDay
+      }); // 追加
+
+
+      if (params.id) {
+        this.updateEvent(params);
+      } else {
+        this.createEvent(params);
+      } // ここまで
+
+
       this.closeDialog();
     },
+    // 追加
     cancel: function cancel() {
       this.setEditMode(false);
 
       if (!this.event.id) {
         this.setEvent(null);
       }
-    }
+    } // ここまで
+
   })
 });
 
@@ -2331,10 +2545,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _EventDetailDialog__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EventDetailDialog */ "./resources/js/components/pageParts/EventDetailDialog.vue");
 /* harmony import */ var _form_EventFormDialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../form/EventFormDialog */ "./resources/js/components/form/EventFormDialog.vue");
+/* harmony import */ var _calendars_CalendarList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../calendars/CalendarList */ "./resources/js/components/calendars/CalendarList.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2373,31 +2588,40 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
 
+
+console.log((0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)(['event']));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Calendar',
   data: function data() {
     return {
-      value: (0,date_fns__WEBPACK_IMPORTED_MODULE_2__["default"])(new Date(), 'yyyy/MM/dd') // 表示する月を指定
+      value: (0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(new Date(), 'yyyy/MM/dd') // 初期値を今日の月にする
 
     };
   },
   components: {
     EventDetailDialog: _EventDetailDialog__WEBPACK_IMPORTED_MODULE_0__["default"],
-    //EventDetailDialogの使用を定義
-    EventFormDialog: _form_EventFormDialog__WEBPACK_IMPORTED_MODULE_1__["default"]
+    EventFormDialog: _form_EventFormDialog__WEBPACK_IMPORTED_MODULE_1__["default"],
+    CalendarList: _calendars_CalendarList__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)('events', ['events', 'event', 'isEditMode'])), {}, {
     title: function title() {
-      return (0,date_fns__WEBPACK_IMPORTED_MODULE_2__["default"])(new Date(this.value), 'yyyy年M月');
+      return (0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(new Date(this.value), 'yyyy年 M月');
     }
   }),
   methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapActions)('events', ['fetchEvents', 'setEvent', 'setEditMode'])), {}, {
     setToday: function setToday() {
-      this.value = (0,date_fns__WEBPACK_IMPORTED_MODULE_2__["default"])(new Date(), 'yyyy/MM/dd');
+      this.value = (0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(new Date(), 'yyyy/MM/dd');
     },
     showEvent: function showEvent(_ref) {
       var event = _ref.event;
@@ -2410,8 +2634,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     initEvent: function initEvent(_ref2) {
       var date = _ref2.date;
       date = date.replace(/-/g, '/');
-      var start = (0,date_fns__WEBPACK_IMPORTED_MODULE_2__["default"])(new Date(date), 'yyyy/MM/dd 00:00:00');
-      var end = (0,date_fns__WEBPACK_IMPORTED_MODULE_2__["default"])(new Date(date), 'yyyy/MM/dd 01:00:00');
+      var start = (0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(new Date(date), 'yyyy/MM/dd 00:00:00');
+      var end = (0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(new Date(date), 'yyyy/MM/dd 01:00:00');
       this.setEvent({
         name: '',
         start: start,
@@ -2505,6 +2729,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2514,6 +2740,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     DialogSection: _DialogSection__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)('events', ['setEvent', 'deleteEvent', 'setEditMode'])), {}, {
+    // setEditModeを追加
     closeDialog: function closeDialog() {
       this.setEvent(null);
     },
@@ -2524,6 +2751,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.deleteEvent(this.event.id);
       }
     },
+    // 追加
     editEvent: function editEvent() {
       this.setEditMode(true);
     }
@@ -2744,18 +2972,148 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modules_events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/events */ "./resources/js/store/modules/events.js");
+/* harmony import */ var _modules_calendars__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/calendars */ "./resources/js/store/modules/calendars.js");
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_1__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_2__["default"]);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
+ // 追加
+
+vue__WEBPACK_IMPORTED_MODULE_2__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_3__["default"]);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_3__["default"].Store({
   modules: {
-    events: _modules_events__WEBPACK_IMPORTED_MODULE_0__["default"]
+    events: _modules_events__WEBPACK_IMPORTED_MODULE_0__["default"],
+    calendars: _modules_calendars__WEBPACK_IMPORTED_MODULE_1__["default"] // 追加
+
   }
 }));
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/calendars.js":
+/*!*************************************************!*\
+  !*** ./resources/js/store/modules/calendars.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _functions_assist__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../functions/assist */ "./resources/js/functions/assist.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+
+
+var state = {
+  calendars: [],
+  calendar: null
+};
+var getters = {
+  calendars: function calendars(state) {
+    return state.calendars.map(function (calendar) {
+      return (0,_functions_assist__WEBPACK_IMPORTED_MODULE_2__.assistCalendar)(calendar);
+    });
+  },
+  calendar: function calendar(state) {
+    return (0,_functions_assist__WEBPACK_IMPORTED_MODULE_2__.assistCalendar)(state.calendar);
+  }
+};
+var mutations = {
+  setCalendars: function setCalendars(state, calendars) {
+    return state.calendars = calendars;
+  },
+  appendCalendar: function appendCalendar(state, calendar) {
+    return state.calendars = [].concat(_toConsumableArray(state.calendars), [calendar]);
+  },
+  // 追加
+  setCalendar: function setCalendar(state, calendar) {
+    return state.calendar = calendar;
+  } // 追加
+
+};
+var actions = {
+  fetchCalendars: function fetchCalendars(_ref) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var commit, response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              commit = _ref.commit;
+              _context.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get('/api/calendars');
+
+            case 3:
+              response = _context.sent;
+              commit('setCalendars', response.data);
+
+            case 5:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  },
+  createCalendar: function createCalendar(_ref2, calendar) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+      var commit, response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              commit = _ref2.commit;
+              _context2.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/calendars', calendar);
+
+            case 3:
+              response = _context2.sent;
+              commit('appendCalendar', response.data);
+
+            case 5:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }))();
+  },
+  setCalendar: function setCalendar(_ref3, calendar) {
+    var commit = _ref3.commit;
+    commit('setCalendar', calendar);
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions
+});
 
 /***/ }),
 
@@ -2823,6 +3181,19 @@ var mutations = {
   setEvent: function setEvent(state, event) {
     return state.event = event;
   },
+  removeEvent: function removeEvent(state, event) {
+    return state.events = state.events.filter(function (e) {
+      return e.id !== event.id;
+    });
+  },
+  resetEvent: function resetEvent(state) {
+    return state.event = null;
+  },
+  updateEvent: function updateEvent(state, event) {
+    return state.events = state.events.map(function (e) {
+      return e.id === event.id ? event : e;
+    });
+  },
   setEditMode: function setEditMode(state, bool) {
     return state.isEditMode = bool;
   }
@@ -2837,7 +3208,7 @@ var actions = {
             case 0:
               commit = _ref.commit;
               _context.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().get('/api/events');
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get('events');
 
             case 3:
               response = _context.sent;
@@ -2851,7 +3222,7 @@ var actions = {
       }, _callee);
     }))();
   },
-  createEvent: function createEvent(_ref2) {
+  createEvent: function createEvent(_ref2, event) {
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
       var commit, response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
@@ -2860,7 +3231,7 @@ var actions = {
             case 0:
               commit = _ref2.commit;
               _context2.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/events', event);
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post('/events', event);
 
             case 3:
               response = _context2.sent;
@@ -2874,12 +3245,61 @@ var actions = {
       }, _callee2);
     }))();
   },
-  setEvent: function setEvent(_ref3, event) {
-    var commit = _ref3.commit;
+  deleteEvent: function deleteEvent(_ref3, id) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+      var commit, response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              commit = _ref3.commit;
+              _context3.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default()["delete"]("/events/".concat(id));
+
+            case 3:
+              response = _context3.sent;
+              commit('removeEvent', response.data);
+              commit('resetEvent');
+
+            case 6:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }))();
+  },
+  // メソッドを追加
+  updateEvent: function updateEvent(_ref4, event) {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+      var commit, response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              commit = _ref4.commit;
+              _context4.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().put("/events/".concat(event.id), event);
+
+            case 3:
+              response = _context4.sent;
+              commit('updateEvent', response.data);
+
+            case 5:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4);
+    }))();
+  },
+  // ここまで
+  setEvent: function setEvent(_ref5, event) {
+    var commit = _ref5.commit;
     commit('setEvent', event);
   },
-  setEditMode: function setEditMode(_ref4, bool) {
-    var commit = _ref4.commit;
+  setEditMode: function setEditMode(_ref6, bool) {
+    var commit = _ref6.commit;
     commit('setEditMode', bool);
   }
 };
@@ -42439,6 +42859,123 @@ module.exports = function (list, options) {
 
 /***/ }),
 
+/***/ "./resources/js/components/calendars/CalendarFormDialog.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/calendars/CalendarFormDialog.vue ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _CalendarFormDialog_vue_vue_type_template_id_4f50284f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CalendarFormDialog.vue?vue&type=template&id=4f50284f& */ "./resources/js/components/calendars/CalendarFormDialog.vue?vue&type=template&id=4f50284f&");
+/* harmony import */ var _CalendarFormDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CalendarFormDialog.vue?vue&type=script&lang=js& */ "./resources/js/components/calendars/CalendarFormDialog.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CalendarFormDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CalendarFormDialog_vue_vue_type_template_id_4f50284f___WEBPACK_IMPORTED_MODULE_0__.render,
+  _CalendarFormDialog_vue_vue_type_template_id_4f50284f___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/calendars/CalendarFormDialog.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/calendars/CalendarList.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/calendars/CalendarList.vue ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _CalendarList_vue_vue_type_template_id_3ba8fdfe___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CalendarList.vue?vue&type=template&id=3ba8fdfe& */ "./resources/js/components/calendars/CalendarList.vue?vue&type=template&id=3ba8fdfe&");
+/* harmony import */ var _CalendarList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CalendarList.vue?vue&type=script&lang=js& */ "./resources/js/components/calendars/CalendarList.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CalendarList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CalendarList_vue_vue_type_template_id_3ba8fdfe___WEBPACK_IMPORTED_MODULE_0__.render,
+  _CalendarList_vue_vue_type_template_id_3ba8fdfe___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/calendars/CalendarList.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/form/CheckBox.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/form/CheckBox.vue ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _CheckBox_vue_vue_type_template_id_08f9651a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CheckBox.vue?vue&type=template&id=08f9651a& */ "./resources/js/components/form/CheckBox.vue?vue&type=template&id=08f9651a&");
+/* harmony import */ var _CheckBox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CheckBox.vue?vue&type=script&lang=js& */ "./resources/js/components/form/CheckBox.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CheckBox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CheckBox_vue_vue_type_template_id_08f9651a___WEBPACK_IMPORTED_MODULE_0__.render,
+  _CheckBox_vue_vue_type_template_id_08f9651a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/form/CheckBox.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/form/ColorForm.vue":
 /*!****************************************************!*\
   !*** ./resources/js/components/form/ColorForm.vue ***!
@@ -42792,6 +43329,54 @@ component.options.__file = "resources/js/components/pages/HomeComponent.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/calendars/CalendarFormDialog.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/calendars/CalendarFormDialog.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CalendarFormDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CalendarFormDialog.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/calendars/CalendarFormDialog.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CalendarFormDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/calendars/CalendarList.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/calendars/CalendarList.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CalendarList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CalendarList.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/calendars/CalendarList.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CalendarList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/form/CheckBox.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/form/CheckBox.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckBox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CheckBox.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/form/CheckBox.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckBox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/form/ColorForm.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************!*\
   !*** ./resources/js/components/form/ColorForm.vue?vue&type=script&lang=js& ***!
@@ -42949,6 +43534,57 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/calendars/CalendarFormDialog.vue?vue&type=template&id=4f50284f&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/calendars/CalendarFormDialog.vue?vue&type=template&id=4f50284f& ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CalendarFormDialog_vue_vue_type_template_id_4f50284f___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CalendarFormDialog_vue_vue_type_template_id_4f50284f___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CalendarFormDialog_vue_vue_type_template_id_4f50284f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CalendarFormDialog.vue?vue&type=template&id=4f50284f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/calendars/CalendarFormDialog.vue?vue&type=template&id=4f50284f&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/calendars/CalendarList.vue?vue&type=template&id=3ba8fdfe&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/calendars/CalendarList.vue?vue&type=template&id=3ba8fdfe& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CalendarList_vue_vue_type_template_id_3ba8fdfe___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CalendarList_vue_vue_type_template_id_3ba8fdfe___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CalendarList_vue_vue_type_template_id_3ba8fdfe___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CalendarList.vue?vue&type=template&id=3ba8fdfe& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/calendars/CalendarList.vue?vue&type=template&id=3ba8fdfe&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/form/CheckBox.vue?vue&type=template&id=08f9651a&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/form/CheckBox.vue?vue&type=template&id=08f9651a& ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckBox_vue_vue_type_template_id_08f9651a___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckBox_vue_vue_type_template_id_08f9651a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckBox_vue_vue_type_template_id_08f9651a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CheckBox.vue?vue&type=template&id=08f9651a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/form/CheckBox.vue?vue&type=template&id=08f9651a&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/form/ColorForm.vue?vue&type=template&id=521c57b2&":
 /*!***********************************************************************************!*\
   !*** ./resources/js/components/form/ColorForm.vue?vue&type=template&id=521c57b2& ***!
@@ -43098,6 +43734,234 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeComponent_vue_vue_type_template_id_6bf90438___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeComponent_vue_vue_type_template_id_6bf90438___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./HomeComponent.vue?vue&type=template&id=6bf90438& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/HomeComponent.vue?vue&type=template&id=6bf90438&");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/calendars/CalendarFormDialog.vue?vue&type=template&id=4f50284f&":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/calendars/CalendarFormDialog.vue?vue&type=template&id=4f50284f& ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-card",
+    { staticClass: "py-12" },
+    [
+      _c(
+        "v-card-text",
+        [
+          _c(
+            "DialogSection",
+            { attrs: { icon: "mdi-square", color: _vm.color } },
+            [
+              _c("v-text-field", {
+                attrs: { label: "カレンダー名" },
+                model: {
+                  value: _vm.name,
+                  callback: function($$v) {
+                    _vm.name = $$v
+                  },
+                  expression: "name"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "DialogSection",
+            { attrs: { icon: "mdi-palette" } },
+            [
+              _c("ColorForm", {
+                model: {
+                  value: _vm.color,
+                  callback: function($$v) {
+                    _vm.color = $$v
+                  },
+                  expression: "color"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-card-actions",
+        { staticClass: "d-flex justify-end" },
+        [
+          _c("v-btn", { on: { click: _vm.close } }, [_vm._v("キャンセル")]),
+          _vm._v(" "),
+          _c("v-btn", { on: { click: _vm.submit } }, [_vm._v("保存")])
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/calendars/CalendarList.vue?vue&type=template&id=3ba8fdfe&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/calendars/CalendarList.vue?vue&type=template&id=3ba8fdfe& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-list",
+    { attrs: { dense: "" } },
+    [
+      _c(
+        "v-list-item",
+        [
+          _c(
+            "v-list-item-content",
+            [_c("v-subheader", [_vm._v("マイカレンダー")])],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-list-item-action",
+            [
+              _c(
+                "v-btn",
+                { attrs: { icon: "" }, on: { click: _vm.initCalendar } },
+                [
+                  _c("v-icon", { attrs: { size: "16px" } }, [
+                    _vm._v("mdi-plus")
+                  ])
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-list-item-group",
+        { attrs: { value: _vm.selectedItem } },
+        _vm._l(_vm.calendars, function(calendar) {
+          return _c(
+            "v-list-item",
+            { key: calendar.id },
+            [
+              _c(
+                "v-list-item-content",
+                { staticClass: "pa-1" },
+                [
+                  _c("v-checkbox", {
+                    staticClass: "pb-2",
+                    attrs: {
+                      dense: "",
+                      color: calendar.color,
+                      label: calendar.name,
+                      "hide-details": "true"
+                    },
+                    model: {
+                      value: calendar.visibility,
+                      callback: function($$v) {
+                        _vm.$set(calendar, "visibility", $$v)
+                      },
+                      expression: "calendar.visibility"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          )
+        }),
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-dialog",
+        {
+          attrs: { value: _vm.calendar !== null, width: "600" },
+          on: { "click:outside": _vm.closeDialog }
+        },
+        [_vm.calendar !== null ? _c("CalendarFormDialog") : _vm._e()],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/form/CheckBox.vue?vue&type=template&id=08f9651a&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/form/CheckBox.vue?vue&type=template&id=08f9651a& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("v-checkbox", {
+    attrs: { label: _vm.label },
+    on: {
+      change: function($event) {
+        return _vm.$emit("input", $event)
+      }
+    },
+    model: {
+      value: _vm.value,
+      callback: function($$v) {
+        _vm.value = $$v
+      },
+      expression: "value"
+    }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+
 
 
 /***/ }),
@@ -43317,15 +44181,31 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c("TimeForm", {
-                model: {
-                  value: _vm.startTime,
-                  callback: function($$v) {
-                    _vm.startTime = $$v
-                  },
-                  expression: "startTime"
-                }
-              }),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !_vm.allDay,
+                      expression: "!allDay"
+                    }
+                  ]
+                },
+                [
+                  _c("TimeForm", {
+                    model: {
+                      value: _vm.startTime,
+                      callback: function($$v) {
+                        _vm.startTime = $$v
+                      },
+                      expression: "startTime"
+                    }
+                  })
+                ],
+                1
+              ),
               _vm._v(" "),
               _c("DateForm", {
                 model: {
@@ -43337,13 +44217,40 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c("TimeForm", {
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !_vm.allDay,
+                      expression: "!allDay"
+                    }
+                  ]
+                },
+                [
+                  _c("TimeForm", {
+                    model: {
+                      value: _vm.endTime,
+                      callback: function($$v) {
+                        _vm.endTime = $$v
+                      },
+                      expression: "endTime"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("CheckBox", {
+                attrs: { label: "終日" },
                 model: {
-                  value: _vm.endTime,
+                  value: _vm.allDay,
                   callback: function($$v) {
-                    _vm.endTime = $$v
+                    _vm.allDay = $$v
                   },
-                  expression: "endTime"
+                  expression: "allDay"
                 }
               })
             ],
@@ -43390,7 +44297,11 @@ var render = function() {
       _c(
         "v-card-actions",
         { staticClass: "d-flex justify-end" },
-        [_c("v-btn", { on: { click: _vm.submit } }, [_vm._v("保存")])],
+        [
+          _c("v-btn", { on: { click: _vm.cancel } }, [_vm._v("キャンセル")]),
+          _vm._v(" "),
+          _c("v-btn", { on: { click: _vm.submit } }, [_vm._v("保存")])
+        ],
         1
       )
     ],
@@ -43530,7 +44441,10 @@ var render = function() {
     [
       _c(
         "v-sheet",
-        { staticClass: "d-flex align-center", attrs: { height: "6vh" } },
+        {
+          staticClass: "d-flex align-center",
+          attrs: { height: "6vh", color: "grey lighten-3" }
+        },
         [
           _c(
             "v-btn",
@@ -43577,33 +44491,42 @@ var render = function() {
       _vm._v(" "),
       _c(
         "v-sheet",
-        { attrs: { height: "94vh" } },
+        { staticClass: "d-flex", attrs: { height: "94vh" } },
         [
-          _c("v-calendar", {
-            ref: "calendar",
-            attrs: {
-              events: _vm.events,
-              locale: "ja-jp",
-              "day-format": function(timestamp) {
-                return new Date(timestamp.date).getDate()
-              },
-              "month-format": function(timestamp) {
-                return new Date(timestamp.date).getMonth() + 1
-              }
-            },
-            on: {
-              change: _vm.fetchEvents,
-              "click:event": _vm.showEvent,
-              "click:day": _vm.initEvent
-            },
-            model: {
-              value: _vm.value,
-              callback: function($$v) {
-                _vm.value = $$v
-              },
-              expression: "value"
-            }
-          })
+          _c("v-sheet", { attrs: { width: "200px" } }, [_c("CalendarList")], 1),
+          _vm._v(" "),
+          _c(
+            "v-sheet",
+            { staticClass: "flex" },
+            [
+              _c("v-calendar", {
+                ref: "calendar",
+                attrs: {
+                  events: _vm.events,
+                  locale: "ja-jp",
+                  "day-format": function(timestamp) {
+                    return new Date(timestamp.date).getDate()
+                  },
+                  "month-format": function(timestamp) {
+                    return new Date(timestamp.date).getMonth() + 1 + " /"
+                  }
+                },
+                on: {
+                  change: _vm.fetchEvents,
+                  "click:event": _vm.showEvent,
+                  "click:day": _vm.initEvent
+                },
+                model: {
+                  value: _vm.value,
+                  callback: function($$v) {
+                    _vm.value = $$v
+                  },
+                  expression: "value"
+                }
+              })
+            ],
+            1
+          )
         ],
         1
       ),
@@ -43615,7 +44538,7 @@ var render = function() {
           on: { "click:outside": _vm.closeDialog }
         },
         [
-          _vm.event !== null && !_vm.isEditMode
+          _vm.event !== null && _vm.isEditMode
             ? _c("EventDetailDialog")
             : _vm._e(),
           _vm._v(" "),

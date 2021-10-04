@@ -15,21 +15,34 @@ const getters = {
 
 const mutations = {
     setEvents: (state, events) => (state.events = events),
-    appendEvent: (state,event) => (state.events = [...state.events, event]),
+    appendEvent: (state, event) => (state.events = [...state.events, event]),
     setEvent: (state, event) => (state.event = event),
+    removeEvent: (state, event) => (state.events = state.events.filter(e => e.id !== event.id)),
+    resetEvent: state => (state.event = null),
+    updateEvent: (state, event) => (state.events = state.events.map(e => (e.id === event.id ? event : e))),
     setEditMode: (state, bool) => (state.isEditMode = bool),
 };
 
 const actions = {
     async fetchEvents({ commit }) {
-        const response = await axios.get('/api/events');
-        
+        const response = await axios.get('events');
         commit('setEvents', response.data);
     },
-    async createEvent({ commit }) {
-        const response = await axios.post('/api/events',event);
+    async createEvent({ commit }, event) {
+        const response = await axios.post('/events', event);
         commit('appendEvent', response.data);
     },
+    async deleteEvent({ commit }, id) {
+        const response = await axios.delete(`/events/${id}`);
+        commit('removeEvent', response.data);
+        commit('resetEvent');
+    },
+    // メソッドを追加
+    async updateEvent({ commit }, event) {
+        const response = await axios.put(`/events/${event.id}`, event);
+        commit('updateEvent', response.data);
+    },
+    // ここまで
     setEvent({ commit }, event) {
         commit('setEvent', event);
     },

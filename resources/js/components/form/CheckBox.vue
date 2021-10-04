@@ -10,5 +10,5 @@
 export default {
     name: 'CheckBox',
     props: ['value', 'label'],
-}
+};
 </script>

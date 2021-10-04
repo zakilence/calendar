@@ -1,75 +1,87 @@
 <template>
     <div>
-      <v-sheet height="6vh" class="d-flex align-center">
-        <v-btn outlined small class="ma-4" @click="setToday">TODAY</v-btn>
-        <v-btn icon @click="$refs.calendar.prev()">
-          <v-icon>mdi-chevron-left</v-icon>
-        </v-btn>
-        <v-btn icon @click="$refs.calendar.next()">
-          <v-icon>mdi-chevron-right</v-icon>
-        </v-btn>
-        <v-toolbar-title>{{ title }}</v-toolbar-title>
-      </v-sheet>
-      <v-sheet height="94vh">
-        <v-calendar
-          ref="calendar"
-          v-model="value"
-          :events="events"
-          @change="fetchEvents"
-          locale="ja-jp"
-          :day-format="(timestamp) => new Date(timestamp.date).getDate()"
-          :month-format="(timestamp) => (new Date(timestamp.date).getMonth() + 1)"
-          @click:event="showEvent"
-          @click:day="initEvent"
-        ></v-calendar>
-      </v-sheet>
-      <v-dialog :value="event !== null" @click:outside="closeDialog" width="600">
-        <EventDetailDialog v-if="event !== null && !isEditMode" />
-        <EventFormDialog v-if="event === null && !isEditMode"/>
-      </v-dialog>
+        <v-sheet height="6vh" class="d-flex align-center" color="grey lighten-3">
+            <v-btn outlined small class="ma-4" @click="setToday">TODAY</v-btn>
+            <v-btn icon @click="$refs.calendar.prev()">
+                <v-icon>mdi-chevron-left</v-icon>
+            </v-btn>
+            <v-btn icon @click="$refs.calendar.next()">
+                <v-icon>mdi-chevron-right</v-icon>
+            </v-btn>
+            <v-toolbar-title>{{ title }}</v-toolbar-title>
+        </v-sheet>
+        <v-sheet height="94vh" class="d-flex">
+            <v-sheet width="200px">
+                <CalendarList />
+            </v-sheet>
+            <v-sheet class="flex">
+                <v-calendar
+                    ref="calendar"
+                    v-model="value"
+                    :events="events"
+                    @change="fetchEvents"
+                    locale="ja-jp"
+                    :day-format="timestamp => new Date(timestamp.date).getDate()"
+                    :month-format="timestamp => new Date(timestamp.date).getMonth() + 1 + ' /'"
+                    @click:event="showEvent"
+                    @click:day="initEvent"
+                ></v-calendar>
+            </v-sheet>
+        </v-sheet>
+
+        <v-dialog :value="event !== null" @click:outside="closeDialog" width="600">
+            <EventDetailDialog v-if="event !== null && isEditMode" />
+            <EventFormDialog v-if="event === null && !isEditMode" />
+        </v-dialog>
+
     </div>
 </template>
 
 <script>
 import { format } from 'date-fns';
-import { mapGetters, mapActions } from 'vuex'; 
-import EventDetailDialog from "./EventDetailDialog";
+import { mapGetters, mapActions } from 'vuex';
+import EventDetailDialog from './EventDetailDialog';
 import EventFormDialog from "../form/EventFormDialog";
+import CalendarList from '../calendars/CalendarList';
+
+console.log(mapGetters(['event']));
 
 export default {
     name: 'Calendar',
     data: () => ({
-        value: format(new Date(), 'yyyy/MM/dd'),  // 表示する月を指定
+        value: format(new Date(), 'yyyy/MM/dd'),  // 初期値を今日の月にする
     }),
     components: {
-      EventDetailDialog, //EventDetailDialogの使用を定義
-      EventFormDialog,
+        EventDetailDialog,
+        EventFormDialog,
+        CalendarList,
     },
     computed: {
-        ...mapGetters('events', ['events','event','isEditMode']),
-        title(){
-          return format(new Date(this.value), 'yyyy年M月');
+        ...mapGetters('events', ['events', 'event', 'isEditMode']), 
+        title () {
+            return format(new Date(this.value), 'yyyy年 M月');
         },
     },
     methods: {
-        ...mapActions('events', ['fetchEvents','setEvent','setEditMode']),
-        setToday(){
-          this.value = format(new Date(), 'yyyy/MM/dd');
+        ...mapActions('events', ['fetchEvents', 'setEvent', 'setEditMode']),
+        setToday() {
+            this.value = format(new Date(), 'yyyy/MM/dd');
         },
         showEvent({ event }) {
-          this.setEvent(event);
+            this.setEvent(event);
         },
-        closeDialog(){
-          this.setEvent(null);
-          this.setEditMode(false);
+        closeDialog() {
+            this.setEvent(null);
+            this.setEditMode(false);
         },
         initEvent({ date }) {
-          date = date.replace(/-/g, '/');
-          const start = format(new Date(date), 'yyyy/MM/dd 00:00:00');
-          const end = format(new Date(date), 'yyyy/MM/dd 01:00:00');
-          this.setEvent({ name: '', start, end, timed: true});
-          this.setEditMode(true);
+            date = date.replace(/-/g, '/');
+            const start = format(new Date(date), 'yyyy/MM/dd 00:00:00');
+            const end = format(new Date(date), 'yyyy/MM/dd 01:00:00');
+            this.setEvent({ name: '', start, end, timed: true });
+            this.setEditMode(true);
         },
+
     }
 };
 </script>
