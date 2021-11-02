@@ -21,7 +21,7 @@ class CreateEventsTable extends Migration
             $table->boolean('timed')->nullable()->default(false);
             $table->text('description')->nullable();
             $table->string('color')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedInteger('calendar_id')->nullable();
             $table->timestamps();
         });
     }
