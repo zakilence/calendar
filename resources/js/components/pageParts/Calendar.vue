@@ -217,5 +217,5 @@ export default {
             this.value = format(new Date(), "yyyy/MM/dd");
         },
     },
-};
+}
 </script>
