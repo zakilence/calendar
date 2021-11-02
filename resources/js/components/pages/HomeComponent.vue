@@ -1,15 +1,26 @@
 <template>
     <v-app id="app">
-        <Calendar />
+        <v-tabs class="mx-auto">
+            <v-tab href="#tab-1">My Page</v-tab>
+            <v-tab href="#tab-2">Group Page</v-tab>
+            <v-tab-item value="tab-1">
+                <Calendar />
+            </v-tab-item>
+            <v-tab-item value="tab-2">
+                <Group />
+            </v-tab-item>
+        </v-tabs>
     </v-app>
 </template>
 
 <script>
 import Calendar from '../pageParts/Calendar';
+import Group from '../pageParts/Grouppage';
 
 export default {
     components: {
         Calendar,
+        Group,
     },
     mounted() {
         console.log('HomeComponent mounted.');

@@ -10,6 +10,6 @@ class Event extends Model
     
     public function calendar()
     {
-        return $this->belongsTo(App\Models\Calendar);
+        return $this->belongsTo('App\Calendar');
     }
 }

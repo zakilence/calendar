@@ -3,13 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Calendar;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
     public function index()
     {
-        return response()->json(Event::all());
+        $calendars=Calendar::where('visibility',1)->get();
+        if($calendars){
+            $events = [];
+            $events_all = [];
+            foreach($calendars as $calendar){
+                $events = $calendar->events->toArray();
+                $events_all = array_merge($events_all,$events);
+            }
+        }
+        else {
+            $events=null;
+        }
+        return response()->json($events_all);
     }
 
     public function show(int $id)
@@ -17,11 +30,18 @@ class EventController extends Controller
         return response()->json(Event::find($id));
     }
 
-    public function create(Request $request)
+    public function create(Request $request, Event $event)
     {
-        $event = new Event();
-
-        return $this->_saveEvent($request, $event);
+        $event->name = $request->input('name');
+        $event->start = $request->input('start');
+        $event->end = $request->input('end');
+        $event->description = $request->input('description');
+        $event->color = $request->input('color');
+        $event->calendar_id = $request->input('calendar_id');
+        $event->save();
+        
+        $events=Event::all();
+        return response()->json($events);
     }
 
     public function save(Request $request)
@@ -30,20 +50,16 @@ class EventController extends Controller
 
         return $this->_saveEvent($request, $event);
     }
-
-    public function destroy(Request $request)
+    
+    public function delete(Event $event)
     {
-        $event = Event::find($request->id);
-
-        if ($event->delete()) {
-            return response()->json($event);
-        } else {
-            return response()->json(['error', 'Delete Error']);
-        }
+        $event->delete();
+        $event=Event::get();
+        return response()->json($event);
     }
 
 
-    public function _saveEvent(Request $request, $event)
+    public function _saveEvent(Request $request,Event $event)
     {
         $event->name = $request->input('name');
         $event->start = new Carbon($request->input('start')); // JSからのデータを日時形式に変換
